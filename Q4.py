@@ -1,14 +1,34 @@
+def calcular_media_turma():
+ 
+    notas = []
+    print("Insira as notas da turma (0 a 10). Digite 'fim' para calcular a média.")
+    while True:
+        entrada = input("Digite a nota: ")
 
-def calcula_preco_total():
-  nome_produto = "Cadeira Infantil"
-  preco_unitario = 12.40
-  quantidade = 3
+        if entrada.lower() == 'fim':
+            break
 
-  preco_total = preco_unitario * quantidade
+        try:
+            nota = float(entrada)
 
-  print(f"Produto: {nome_produto}")
-  print(f"Preço Unitário: R$ {preco_unitario:.2f}")
-  print(f"Quantidade: {quantidade}")
-  print(f"Preço Total: R$ {preco_total:.2f}")
+            if 0 <= nota <= 10:
+                notas.append(nota)
+                print(f"Nota {nota} adicionada.")
+            else:
+                print("Nota inválida. Por favor, insira um valor entre 0 e 10.")
+        
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número ou 'fim'.")
 
-calcula_preco_total()
+    if notas:
+        media = sum(notas) / len(notas)
+        print("\n--- Resultado Final ---")
+        print(f"Foram inseridas {len(notas)} notas válidas.")
+        print(f"A média da turma é: {media:.2f}")
+    else:
+        print("\nNenhuma nota válida foi inserida. Não é possível calcular a média.")
+    
+    print("Programa encerrado.")
+
+# Inicia a calculadora de média
+calcular_media_turma()
