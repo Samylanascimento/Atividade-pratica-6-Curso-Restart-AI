@@ -1,12 +1,31 @@
+def contar_par_impar():
+ 
+    cont_pares = 0
+    cont_impares = 0
 
+    print("Digite números inteiros (ou 'fim' para sair):")
 
-def soma_numeros():
-  numero1 = 12
-  numero2 = 14
-  soma = numero1 + numero2
+    while True:
+        entrada = input("> ")
 
-  print(f"Número 1: {numero1}")
-  print(f"Número 2: {numero2}")
-  print(f"Soma: {soma}")
+        if entrada.lower() == 'fim':
+            break
 
-soma_numeros()
+        try:
+            numero = int(entrada)
+            if numero % 2 == 0:
+                print(f"{numero} é PAR.")
+                cont_pares += 1
+            else:
+                print(f"{numero} é ÍMPAR.")
+                cont_impares += 1
+        except ValueError:
+            print("Erro: Entrada inválida. Por favor, insira um número inteiro ou 'fim'.")
+
+    print("\n--- Relatório Final ---")
+    print(f"Quantidade de números pares inseridos: {cont_pares}")
+    print(f"Quantidade de números ímpares inseridos: {cont_impares}")
+    print("Programa encerrado.")
+
+# Inicia o contador
+contar_par_impar()
